@@ -44,8 +44,8 @@ export function Header() {
             <div className="flex-shrink-0 group">
               <a href="/" className="flex items-center space-x-3 transition-transform duration-300 group-hover:scale-105">
                 <div className="relative">
-                  <div className="w-10 h-10 bg-gradient-to-br from-primary via-secondary to-primary rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:shadow-primary/25 transition-all duration-300">
-                    <span className="text-white font-bold text-lg">G</span>
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center">
+                    <img src="/assets/logo.png" alt="Green Eye Logo" className="h-full w-full object-contain" />
                   </div>
                   <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-300"></div>
                 </div>
