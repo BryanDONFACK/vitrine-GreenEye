@@ -53,7 +53,7 @@ export function ManagementService() {
     },
   ];
 
-  const advantages = t('services.management.advantages.items') as string[];
+  const advantages = t('services.management.advantages.items');
 
   return (
     <section id="management" className="section-padding bg-gradient-to-b from-background to-muted/20">

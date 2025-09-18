@@ -12,34 +12,34 @@ export function AnalysisService() {
     {
       icon: Activity,
       title: t('services.analysis.capabilities.health.title'),
-      items: t('services.analysis.capabilities.health.items') as string[],
+      items: t('services.analysis.capabilities.health.items'),
       color: 'text-green-500',
       bgColor: 'bg-green-500/10',
     },
     {
       icon: TrendingUp,
       title: t('services.analysis.capabilities.growth.title'),
-      items: t('services.analysis.capabilities.growth.items') as string[],
+      items: t('services.analysis.capabilities.growth.items'),
       color: 'text-blue-500',
       bgColor: 'bg-blue-500/10',
     },
     {
       icon: Thermometer,
       title: t('services.analysis.capabilities.environment.title'),
-      items: t('services.analysis.capabilities.environment.items') as string[],
+      items: t('services.analysis.capabilities.environment.items'),
       color: 'text-orange-500',
       bgColor: 'bg-orange-500/10',
     },
     {
       icon: Bug,
       title: t('services.analysis.capabilities.pests.title'),
-      items: t('services.analysis.capabilities.pests.items') as string[],
+      items: t('services.analysis.capabilities.pests.items'),
       color: 'text-red-500',
       bgColor: 'bg-red-500/10',
     },
   ];
 
-  const outputs = t('services.analysis.outputs.items') as string[];
+  const outputs = t('services.analysis.outputs.items');
 
   return (
     <section id="analysis" className="section-padding bg-muted/30">

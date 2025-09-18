@@ -40,7 +40,7 @@ export function MappingService() {
     },
   ];
 
-  const benefits = t('services.mapping.benefits.items') as string[];
+  const benefits = t('services.mapping.benefits.items');
 
   return (
     <section id="mapping" className="section-padding bg-gradient-to-b from-background to-muted/20">

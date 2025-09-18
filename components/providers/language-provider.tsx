@@ -1,12 +1,12 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { translations, type Language, type TranslationKey } from '@/lib/translations';
+import { translations, type Language, type TranslationKey, type SpecificTranslationValue } from '@/lib/translations';
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: (key: TranslationKey) => string;
+  t: <K extends TranslationKey>(key: K) => SpecificTranslationValue<K>;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -27,7 +27,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     document.documentElement.setAttribute('lang', lang);
   };
 
-  const t = (key: TranslationKey): string => {
+  const t = <K extends TranslationKey>(key: K): SpecificTranslationValue<K> => {
     const keys = key.split('.');
     let value: any = translations[language];
     
@@ -35,7 +35,13 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       value = value?.[k];
     }
     
-    return value || key;
+    // Fallback: if value is undefined, return an empty array if the expected type is array, otherwise return the key string.
+    if (value === undefined) {
+      const dummyValue: SpecificTranslationValue<K> = Array.isArray(translations.fr[keys[0] as keyof typeof translations.fr]) ? [] as any : key as any;
+      return dummyValue;
+    }
+    
+    return value;
   };
 
   return (

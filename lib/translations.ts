@@ -221,6 +221,8 @@ export const translations = {
         workforce: '60% de la population active',
         cost: 'Réduction des coûts',
         yield: 'Amélioration des rendements',
+        farmers: 'Agriculteurs',
+        hectares: 'Hectares',
       },
     },
     impact: {
@@ -549,6 +551,8 @@ export const translations = {
         workforce: '60% of active population',
         cost: 'Cost reduction',
         yield: 'Yield improvement',
+        farmers: 'Farmers',
+        hectares: 'Hectares',
       },
     },
     impact: {
@@ -659,4 +663,18 @@ export const translations = {
   },
 } as const;
 
-export type TranslationKey = keyof typeof translations.fr | `${keyof typeof translations.fr}.${string}`;
+type Paths<T> = T extends object
+  ? { [K in keyof T]: K extends string ? (T[K] extends object ? `${K}.${Paths<T[K]>}` | K : K) : never }[keyof T]
+  : never;
+
+export type TranslationKey = Paths<typeof translations.fr>;
+
+type GetValue<T, P> = P extends `${infer K}.${infer Rest}`
+  ? K extends keyof T
+    ? GetValue<T[K], Rest>
+    : never
+  : P extends keyof T
+    ? T[P]
+    : never;
+
+export type SpecificTranslationValue<K extends TranslationKey> = GetValue<typeof translations.fr, K>;
