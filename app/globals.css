@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Light theme - Agriculture colors */
+  --color-primary: 76 175 80; /* #4CAF50 */
+  --color-secondary: 139 195 74; /* #8BC34A */
+  --color-accent: 76 175 80; /* #4CAF50 */
+  --color-text-primary: 33 33 33; /* #212121 */
+  --color-text-secondary: 66 66 66; /* #424242 */
+  --color-background: 255 255 255; /* #FFFFFF */
+  --color-surface: 245 245 245; /* #F5F5F5 */
+  --color-border: 224 224 224; /* #E0E0E0 */
+  --color-success: 76 175 80;
+  --color-warning: 255 193 7;
+  --color-error: 244 67 54;
+}
+
+[data-theme="dark"] {
+  /* Dark theme - Adapted agriculture colors */
+  --color-primary: 102 187 106; /* #66BB6A */
+  --color-secondary: 156 204 101; /* #9CCC65 */
+  --color-accent: 102 187 106; /* #66BB6A */
+  --color-text-primary: 255 255 255; /* #FFFFFF */
+  --color-text-secondary: 224 224 224; /* #E0E0E0 */
+  --color-background: 13 17 23; /* #0D1117 */
+  --color-surface: 22 27 34; /* #161B22 */
+  --color-border: 48 54 61; /* #30363D */
+  --color-success: 102 187 106;
+  --color-warning: 255 193 7;
+  --color-error: 244 67 54;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1280px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+
+  .card {
+    @apply bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .card-3d {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .card-3d:hover {
+    transform: rotateX(5deg) rotateY(5deg) translateZ(20px);
+  }
+  
+  .magnetic {
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .magnetic:hover {
+    transform: translate(-2px, -2px);
+  }
+  
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  .depth-1 { transform: translateZ(10px); }
+  .depth-2 { transform: translateZ(20px); }
+  .depth-3 { transform: translateZ(30px); }
+  .depth-4 { transform: translateZ(40px); }
+  
+  .parallax-slow { transform: translate3d(0, calc(var(--scroll) * -0.5px), 0); }
+  .parallax-fast { transform: translate3d(0, calc(var(--scroll) * -1px), 0); }
+}
