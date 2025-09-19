@@ -11,25 +11,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Green Eye - Agriculture de Précision | Drone IA pour Agriculteurs Africains',
-  description: 'Révolutionnez votre agriculture avec Green Eye : cartographie drone automatique, analyse IA des cultures, gestion intelligente. -30% coûts, +20% rendements. Solution low-cost adaptée à l\'Afrique.',
+  title: 'Green Eye | Agriculture de Précision en Afrique : Drones & IA pour des Rendements Optimaux',
+  description: 'Révolutionnez l\'agriculture africaine avec Green Eye. Solutions de cartographie drone, analyse IA des cultures et gestion intelligente pour -30% de coûts, +20% de rendements et une agriculture durable. Votre partenaire AgriTech au Cameroun et en Afrique.',
   keywords: [
-    'agriculture de précision',
-    'drone agricole',
-    'intelligence artificielle agriculture',
+    'agriculture de précision Afrique',
+    'drone agricole IA',
+    'analyse culture par IA',
+    'optimisation rendements agricoles',
+    'réduction coûts agriculture',
+    'technologie agricole durable',
     'AgriTech Afrique',
-    'cartographie parcelles',
-    'analyse spatiale cultures',
-    'gestion agricole digitale',
-    'technologie agricole Cameroun',
-    'Green Eye',
-    'agriculture durable',
-    'optimisation rendements',
-    'réduction coûts agricoles',
-    'détection maladies cultures',
-    'stress hydrique',
-    'NDVI',
-    'agriculture connectée'
+    'cartographie parcelles drone',
+    'détection maladies cultures IA',
+    'gestion agricole intelligente',
+    'innovation agricole Cameroun',
+    'Green Eye agriculture',
+    'solution agricole low-cost Afrique',
+    'stress hydrique drone',
+    'NDVI agriculture',
+    'agriculture connectée Afrique'
   ],
   authors: [{ name: 'Green Eye' }],
   creator: 'Green Eye',
@@ -91,6 +91,26 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'default',
     'format-detection': 'telephone=no',
   },
+  // Structured data for SEO
+  /* scripts: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Green Eye",
+      "url": "https://greeneye.africa",
+      "logo": "https://greeneye.africa/assets/logo.png",
+      "description": "Green Eye révolutionne l'agriculture africaine avec des drones et l'IA pour une agriculture de précision durable.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+237 693 972 173",
+        "contactType": "Customer Service"
+      },
+      "sameAs": [
+        "https://twitter.com/green_eye_africa"
+      ]
+    }),
+  }], */
 };
 
 export default function RootLayout({
@@ -107,6 +127,27 @@ export default function RootLayout({
         <meta name="theme-color" content="#4CAF50" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Green Eye",
+              "url": "https://greeneye.africa",
+              "logo": "https://greeneye.africa/assets/logo.png",
+              "description": "Green Eye révolutionne l'agriculture africaine avec des drones et l'IA pour une agriculture de précision durable.",
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "telephone": "+237 693 972 173",
+                "contactType": "Customer Service"
+              },
+              "sameAs": [
+                "https://twitter.com/green_eye_africa"
+              ]
+            }),
+          }}
+        />
       </head>
       <body className={`${inter.variable} font-sans antialiased min-h-screen`}>
         <ThemeProvider>
